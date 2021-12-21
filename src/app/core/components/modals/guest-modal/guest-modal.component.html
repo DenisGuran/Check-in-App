@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="modal-title">{{discipline.disciplineName}}</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" id="modal-body">
+    Teacher: {{discipline.teacherLastName}} {{discipline.teacherFirstName}} <br>
+    Hour: {{discipline.startTime | date: 'HH:mm'}} <br>
+    Classroom: {{discipline.classroomLocation}} <br>
+    Capacity: {{discipline.enrolledStudentsNumber}}/{{discipline.capacity}}
+</div>

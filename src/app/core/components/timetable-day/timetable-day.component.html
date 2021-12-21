@@ -1,0 +1,2 @@
+<app-timetable-item *ngFor = "let discipline of disciplines" [discipline]="discipline"></app-timetable-item>
+<div *ngIf = "disciplines.length == 0" class="text-white text-bold">Free day</div>

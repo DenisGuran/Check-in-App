@@ -1,0 +1,47 @@
+@import '~bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.text-size-16{
+    font-size: 16px;
+}
+
+.text-size-14 {
+    font-size: 14px;
+}
+
+.text-size-28{
+    font-size: 28px;
+}
+
+.text-bold{
+    font-weight: bold;
+}
+
+.text-yellow{
+    color: #fff59e;
+}
+.text-light-green{
+    color: #afdd73;
+}
+.text-red{
+    color: #ff0000;
+}
+
+.bg-dark2{
+    background-color: #212529;
+}
+
+.dark-modal .modal-content {
+    background-color: #212529;
+    color: white;
+}
+.dark-modal .close{
+    color: white;
+}
+
+.close:hover{
+    color: white;
+    opacity: 1;
+}

@@ -1,0 +1,10 @@
+<div class = "card text-size-16 text-white" (click)="onOpenModal(discipline, 'admin')">
+    <div class = "card-header text-bold">
+        {{discipline.disciplineName}} - {{discipline.teacherLastName}} {{discipline.teacherFirstName.charAt(0)}}.
+    </div>
+    <div class = "card-body">
+        <div class="text-light-green text-bold">{{discipline.startTime | date: 'HH:mm'}}</div>
+        <div>Classroom: {{discipline.classroomLocation}}</div>
+        <div>Capacity: {{discipline.enrolledStudentsNumber}}/{{discipline.capacity}}</div> 
+    </div>
+</div>
