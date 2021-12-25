@@ -1,0 +1,24 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="deleteModelLabel">Reservation</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+   <form [formGroup]="reservationForm">
+      <div class="form-group">
+         <label for="scheduleId">Discipline</label>
+         <input type="text" formControlName="scheduleId" class="form-control" id="scheduleId" placeholder="{{discipline.disciplineName}}" readonly>
+      </div>
+      <div class="form-group">
+         <label for="studentId">Student</label>
+         <select type="text" formControlName="studentId" class="form-select" id="studentId" required>
+            <option *ngFor="let student of students" value = "{{student.id}}">{{student.firstName}} {{student.lastName}}</option>
+         </select>
+      </div>
+   </form>
+</div>
+<div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-secondary ml-auto" (click)="modal.dismiss()">Cancel</button>
+    <button type="button" class="btn btn-danger mr-auto" (click)="onAddReservation(reservationForm)">Reserve</button>
+</div>

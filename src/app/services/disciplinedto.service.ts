@@ -14,10 +14,10 @@ export class DisciplinedtoService {
   constructor(private http: HttpClient) { }
 
   public getDisciplineDTOsByDay(day: string): Observable<Disciplinedto[]>{
-    return this.http.get<Disciplinedto[]>(this.apiServerUrl + '/' + day);
+    return this.http.get<Disciplinedto[]>(`${this.apiServerUrl}/${day}`);
   }
 
   public getAllDisciplineDTOs(): Observable<Disciplinedto[]>{
-    return this.http.get<Disciplinedto[]>(this.apiServerUrl);
+    return this.http.get<Disciplinedto[]>(`${this.apiServerUrl}`);
   }
 }

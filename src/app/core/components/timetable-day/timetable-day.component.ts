@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Disciplinedto } from 'src/app/models/disciplinedto';
+import { DataTransferService } from 'src/app/services/data-transfer.service';
 import { DisciplinedtoService } from 'src/app/services/disciplinedto.service';
-import { ScheduleService } from 'src/app/services/schedule.service';
 
 @Component({
   selector: 'app-timetable-day',
@@ -13,24 +14,33 @@ export class TimetableDayComponent implements OnInit {
 
   disciplines : Disciplinedto[] = [];
   @Input() today!: Date;
+  private subscriptionName: Subscription;
   
-  constructor(private disciplinedtoService: DisciplinedtoService) { 
+  constructor(private disciplinedtoService: DisciplinedtoService, private Service: DataTransferService) { 
+    this.subscriptionName= this.Service.getUpdate().subscribe
+             (_ => {
+              this.getDisciplineDTOs(this.today);
+             });
   }
 
   ngOnInit(): void {
     this.getDisciplineDTOs(this.today);
   }
 
-  public getDisciplineDTOs(today: Date): void{
-    var dayFormat: string = today.toString().slice(0,3)
-    this.disciplinedtoService.getDisciplineDTOsByDay(dayFormat).subscribe(
-      (response: Disciplinedto[]) => {
-        this.disciplines = response;
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    )
+  ngOnDestroy() {
+    this.subscriptionName.unsubscribe();
   }
 
+  public getDisciplineDTOs(today: Date): void{
+    var dayFormat: string = today.toString().slice(0,3);
+    this.disciplinedtoService.getDisciplineDTOsByDay(dayFormat).subscribe({
+      next: (response: Disciplinedto[]) => {
+        this.disciplines = response;
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    });
+  }
+  
 }

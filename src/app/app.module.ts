@@ -13,7 +13,11 @@ import { GuestModalComponent } from './core/components/modals/guest-modal/guest-
 import { StudentModalComponent } from './core/components/modals/student-modal/student-modal.component';
 import { AdminModalComponent } from './core/components/modals/admin-modal/admin-modal.component';
 import { TeacherModalComponent } from './core/components/modals/teacher-modal/teacher-modal.component';
-import { DeleteDisciplineModalComponent } from './core/components/modals/delete-discipline-modal/delete-discipline-modal.component';
+import { DeleteScheduleModalComponent } from './core/components/modals/delete-schedule-modal/delete-schedule-modal.component';
+import { ReserveModalComponent } from './core/components/modals/reserve-modal/reserve-modal.component';
+import { AddScheduleModalComponent } from './core/components/modals/add-schedule-modal/add-schedule-modal.component';
+import { EditScheduleModalComponent } from './core/components/modals/edit-schedule-modal/edit-schedule-modal.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,13 +30,18 @@ import { DeleteDisciplineModalComponent } from './core/components/modals/delete-
     StudentModalComponent,
     AdminModalComponent,
     TeacherModalComponent,
-    DeleteDisciplineModalComponent
+    DeleteScheduleModalComponent,
+    ReserveModalComponent,
+    AddScheduleModalComponent,
+    EditScheduleModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

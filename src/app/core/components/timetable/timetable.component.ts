@@ -8,8 +8,8 @@ import { DayDateService } from 'src/app/services/day-date.service';
 })
 export class TimetableComponent implements OnInit {
 
-  hours!: string[];
   weekDays!: Date[];
+  currentDay: Date = new Date();
 
   constructor(private dayDateService: DayDateService) { }
 

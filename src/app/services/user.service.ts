@@ -14,6 +14,10 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   public getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.apiServerUrl + "/all");
+    return this.http.get<User[]>(`${this.apiServerUrl}/all`);
+  }
+
+  public getStudents(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.apiServerUrl}/role/student`);
   }
 }

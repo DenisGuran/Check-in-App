@@ -1,2 +1,26 @@
-<h1 class="text-size-28 text-align text-bold padding-left-30 padding-tb-15 bg-dark2 text-white"> Check-in Platform</h1>
-<app-timetable></app-timetable>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark padding-left-30 padding-tb-15 bg-dark2">
+      <a class="navbar-brand text-size-28 text-white text-bold"> Check-in Platform</a>
+      <div class="collapse navbar-collapse">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="btn" (click)="onOpenModal('add')">Add Schedule 
+                  <span class="sr-only">(current)</span>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="btn">Add Discipline 
+                  <span class="sr-only">(current)</span>
+               </a>
+            </li>
+            <li class="nav-item">
+               <a class="btn">Add Classroom 
+                  <span class="sr-only">(current)</span>
+               </a>
+            </li>
+         </ul>
+      </div>
+   </nav>
+   <app-timetable></app-timetable>
+</body>
+

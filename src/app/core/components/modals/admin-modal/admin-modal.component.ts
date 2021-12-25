@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { Disciplinedto } from 'src/app/models/disciplinedto';
-import { DeleteDisciplineModalComponent } from '../delete-discipline-modal/delete-discipline-modal.component';
+import { DeleteScheduleModalComponent } from '../delete-schedule-modal/delete-schedule-modal.component';
+import { EditScheduleModalComponent } from '../edit-schedule-modal/edit-schedule-modal.component';
 
 @Component({
   selector: 'app-admin-modal',
@@ -25,8 +26,13 @@ export class AdminModalComponent implements OnInit {
 
   onOpenModal(discipline: Disciplinedto, mode: string) {
     if(mode === 'delete'){
-      const deteleModal = this.modalService.open(DeleteDisciplineModalComponent, this.modalOptions);
+      const deteleModal = this.modalService.open(DeleteScheduleModalComponent, this.modalOptions);
       deteleModal.componentInstance.discipline = discipline;
+    }
+
+    if(mode === 'edit'){
+      const editModal = this.modalService.open(EditScheduleModalComponent, this.modalOptions);
+      editModal.componentInstance.discipline = discipline;
     }
     
   }

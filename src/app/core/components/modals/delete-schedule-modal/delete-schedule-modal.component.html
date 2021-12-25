@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="deleteModelLabel">Delete schedule for {{discipline.disciplineName}}</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body text-center">
+    Are you sure you want to delete the following schedule? <br>
+    <b>{{discipline.disciplineName}} - {{discipline.startTime | date: 'EEEE'}}, {{discipline.startTime | date: 'HH:mm'}}</b>
+</div>
+<div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-secondary ml-auto" (click)="modal.dismiss()">No</button>
+    <button type="button" class="btn btn-danger mr-auto" (click)="onDeleteSchedule(discipline)">Yes</button>
+</div>

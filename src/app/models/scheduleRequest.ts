@@ -1,5 +1,4 @@
-export interface Schedule {
-    id: number;
+export interface ScheduleRequest {
     disciplineId: number;
     classroomId: number;
     startTime: Date;
