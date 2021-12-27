@@ -1,30 +1,38 @@
 <div class="modal-header">
-    <h5 class="modal-title" id="addModelLabel">Edit Schedule</h5>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
-        <span aria-hidden="true">&times;</span>
-    </button>
- </div>
- <div class="modal-body">
-    <form [formGroup]="editForm">
-       <div class="form-group">
-          <label for="disciplineId">Discipline</label>
-
-       </div>
-       <div class="form-group">
-          <label for="classroomId">Classroom</label>
-
-       </div>
-       <div class="form-group">
-          <label for="day">Date</label>
-          <input type="date" formControlName="day" class="form-control" id="day" required>
-       </div>
-       <div class="form-group">
-          <label for="time">Time</label>
-          <input type="time" formControlName="time" class="form-control" id="time" required>
-       </div>
-    </form>
- </div>
-  <div class="modal-footer justify-content-between">
-    <button type="button" class="btn btn-secondary ml-auto" (click)="modal.dismiss()">Close</button>
-    <button type="submit" class="btn btn-primary mr-auto" [disabled]="editForm.invalid" (click)="onEditSchedule(editForm)">Save changes</button>
- </div>
+   <h5 class="modal-title" id="addModelLabel">Edit Schedule</h5>
+   <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+       <span aria-hidden="true">&times;</span>
+   </button>
+</div>
+<div class="modal-body">
+   <form [formGroup]="editForm">
+      <div *ngIf="role == 'admin'" class="form-group">
+         <label for="disciplineId">Discipline</label>
+         <select type="text" formControlName="disciplineId" class="form-select" id="disciplineId">
+            <option *ngFor="let discipline of disciplines" value = "{{discipline.id}}">{{discipline.name}}</option>
+         </select>
+      </div>
+      <div *ngIf="role == 'teacher'" class="form-group">
+         <label>Discipline</label>
+         <input type="text" class="form-control" placeholder="{{discipline.disciplineName}}" readonly>
+      </div>
+      <div class="form-group">
+         <label for="classroomId">Classroom</label>
+         <select type="text" formControlName="classroomId" class="form-select" id="classroomId">
+            <option *ngFor="let classroom of classrooms" value = "{{classroom.id}}">{{classroom.location}}</option>
+         </select>
+      </div>
+      <div class="form-group">
+         <label for="day">Date</label>
+         <input type="date" formControlName="day" class="form-control" id="day">
+      </div>
+      <div class="form-group">
+         <label for="time">Time</label>
+         <input type="time" formControlName="time" class="form-control" id="time">
+      </div>
+   </form>
+</div>
+ <div class="modal-footer justify-content-between">
+   <button type="button" class="btn btn-outline-secondary ml-auto" (click)="modal.dismiss()">Close</button>
+   <button type="submit" class="btn btn-outline-primary mr-auto" (click)="onEditSchedule(editForm)">Save changes</button>
+</div>

@@ -13,12 +13,14 @@ import { TeacherModalComponent } from '../modals/teacher-modal/teacher-modal.com
 export class TimetableItemComponent implements OnInit {
 
   @Input() discipline!: Disciplinedto;
+  @Input() role!: string;
   modalOptions: NgbModalOptions;
 
   constructor(private modalService: NgbModal) {
     this.modalOptions = {
       windowClass: 'dark-modal',
-      centered: true
+      centered: true,
+      scrollable: true
     }
   }
 

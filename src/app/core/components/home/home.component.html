@@ -1,26 +1,41 @@
 <body>
-   <nav class="navbar navbar-expand-lg navbar-dark padding-left-30 padding-tb-15 bg-dark2">
-      <a class="navbar-brand text-size-28 text-white text-bold"> Check-in Platform</a>
-      <div class="collapse navbar-collapse">
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark2">
+      <a class="navbar-brand text-white text-bold text-size-25"> Check-in Platform</a>
+      <div class="collapse navbar-collapse" *ngIf="role == 'admin'">
          <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-               <a class="btn" (click)="onOpenModal('add')">Add Schedule 
+               <a class="btn btn-outline-warning margin-5" (click)="onOpenModal('add')">Add Schedule 
                   <span class="sr-only">(current)</span>
                </a>
             </li>
             <li class="nav-item">
-               <a class="btn">Add Discipline 
+               <a class="btn btn-outline-warning margin-5">Add Discipline 
                   <span class="sr-only">(current)</span>
                </a>
             </li>
             <li class="nav-item">
-               <a class="btn">Add Classroom 
+               <a class="btn btn-outline-warning margin-5">Add Classroom 
                   <span class="sr-only">(current)</span>
                </a>
             </li>
          </ul>
       </div>
+      <div class="btn-group btn-group-toggle ml-auto" data-toggle="buttons">
+         <label class="btn btn-outline-secondary active">
+           <input type="radio" [(ngModel)]="role" name="role" value = "guest" autocomplete="off" checked> Guest
+         </label>
+         <label class="btn btn-outline-secondary">
+           <input type="radio" [(ngModel)]="role" name="role" value = "student" autocomplete="off"> Student
+         </label>
+         <label class="btn btn-outline-secondary">
+           <input type="radio" [(ngModel)]="role" name="role" value = "teacher" autocomplete="off"> Teacher
+         </label>
+         <label class="btn btn-outline-secondary">
+            <input type="radio" [(ngModel)]="role" name="role" value = "admin" autocomplete="off"> Admin
+          </label>
+       </div>
    </nav>
-   <app-timetable></app-timetable>
+   <div class="margin-bottom-2"></div>
+   <app-timetable [role]="role"></app-timetable>
 </body>
 

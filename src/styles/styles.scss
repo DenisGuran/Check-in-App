@@ -11,10 +11,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 14px;
 }
 
-.text-size-28{
-    font-size: 28px;
-}
-
 .text-bold{
     font-weight: bold;
 }
@@ -44,4 +40,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .close:hover{
     color: white;
     opacity: 1;
+}
+
+.close:focus {
+    outline: none;
+    box-shadow: none;
 }

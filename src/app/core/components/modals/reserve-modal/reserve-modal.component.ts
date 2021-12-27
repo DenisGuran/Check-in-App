@@ -30,15 +30,37 @@ export class ReserveModalComponent implements OnInit {
     this.getStudents();
   }
 
-  public onAddReservation(reservationForm : FormGroup): void {
-    console.log(reservationForm.value)
+  public onReserve(reservationForm : FormGroup): void {
+    reservationForm.patchValue({
+      scheduleId: this.discipline.scheduleId.toString()
+    })
+    this.modalService.dismissAll();
     this.reservationService.addReservation(reservationForm.value).subscribe({
       next: _ => {
         this.updateTimetableDay();
-        this.modalService.dismissAll();
+        reservationForm.reset();
       },
       error: _ => {
-        alert('Schedule not found');
+        alert('Reservation already added');
+        reservationForm.reset();
+      }
+    });
+  }
+
+  public onCancelReservation(reservationForm : FormGroup): void {
+    reservationForm.patchValue({
+      scheduleId: this.discipline.scheduleId.toString()
+    })
+    console.log(reservationForm.value)
+    this.modalService.dismissAll();
+    this.reservationService.deleteReservation(reservationForm.value).subscribe({
+      next: _ => {
+        this.updateTimetableDay();
+        reservationForm.reset();
+      },
+      error: _ => {
+        alert('Reservation does not exist');
+        reservationForm.reset();
       }
     });
   }

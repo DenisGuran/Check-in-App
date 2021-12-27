@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { AddScheduleModalComponent } from '../modals/add-schedule-modal/add-schedule-modal.component';
 
@@ -10,6 +10,7 @@ import { AddScheduleModalComponent } from '../modals/add-schedule-modal/add-sche
 export class HomeComponent implements OnInit {
 
   modalOptions: NgbModalOptions;
+  role : string = "guest";
 
   constructor(private modalService: NgbModal) {
     this.modalOptions = {

@@ -5,13 +5,40 @@
     </button>
 </div>
 <div class="modal-body" id="modal-body">
-    Teacher: {{discipline.teacherLastName}} {{discipline.teacherFirstName}} <br>
-    Start time: {{discipline.startTime | date: 'HH:mm'}} <br>
-    Classroom: {{discipline.classroomLocation}} <br>
-    Capacity: {{discipline.enrolledStudentsNumber}}/{{discipline.capacity}} <br>
-    
+    <form>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Discipline</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control " placeholder="{{discipline.disciplineName}}" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Teacher</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="{{discipline.teacherFirstName}} {{discipline.teacherLastName}}" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Classroom</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="{{discipline.classroomLocation}}" readonly>
+            </div>
+        </div>
+        <div class="form-group row">
+           <label class="col-sm-2 col-form-label">Time</label>
+           <div class="col-sm-10">
+               <input type="text" class="form-control" placeholder="{{discipline.startTime | date: 'EEEE'}}, {{discipline.startTime | date: 'HH:mm'}}" readonly>
+           </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Capacity</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="{{discipline.enrolledStudentsNumber}}/{{discipline.capacity}}" readonly>
+            </div>
+        </div>
+    </form>
 </div>
 <div class="modal-footer justify-content-between">
-    <button type="button" class="btn btn-primary ml-auto" (click)="onOpenModal(discipline,'edit')">Edit</button>
-    <button type="button" class="btn btn-danger mr-auto" (click)="onOpenModal(discipline,'delete')">Delete</button>
+    <button type="button" class="btn btn-outline-warning ml-auto" (click)="onOpenModal(discipline,'edit')">Edit</button>
+    <button type="button" class="btn btn-outline-danger mr-auto" (click)="onOpenModal(discipline,'delete')">Delete</button>
 </div>

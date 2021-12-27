@@ -12,8 +12,9 @@ import { DisciplinedtoService } from 'src/app/services/disciplinedto.service';
 })
 export class TimetableDayComponent implements OnInit {
 
-  disciplines : Disciplinedto[] = [];
   @Input() today!: Date;
+  @Input() role!: string;
+  disciplines : Disciplinedto[] = [];
   private subscriptionName: Subscription;
   
   constructor(private disciplinedtoService: DisciplinedtoService, private Service: DataTransferService) { 

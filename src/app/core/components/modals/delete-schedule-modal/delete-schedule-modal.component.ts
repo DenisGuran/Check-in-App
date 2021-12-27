@@ -31,7 +31,7 @@ export class DeleteScheduleModalComponent implements OnInit {
     });
   }
 
-  updateTimetableDay(): void{
+  public updateTimetableDay(): void{
     this.dataTransferService.sendUpdate('Schedule Deleted');
   }
 

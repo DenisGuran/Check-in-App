@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DayDateService } from 'src/app/services/day-date.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { DayDateService } from 'src/app/services/day-date.service';
 })
 export class TimetableComponent implements OnInit {
 
+  @Input() role!: string;
   weekDays!: Date[];
   currentDay: Date = new Date();
 

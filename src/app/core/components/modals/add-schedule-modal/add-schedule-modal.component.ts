@@ -49,13 +49,12 @@ export class AddScheduleModalComponent implements OnInit {
         this.modal.dismiss();
       },
       error: (error: HttpErrorResponse) => {
-        alert(error.message)
-        addForm.reset();
+        alert('Schedule already created');
       }
     });
   }
 
-  updateTimetableDay(): void{
+  public updateTimetableDay(): void{
     this.dataTransferService.sendUpdate('Schedule Added');
   }
 

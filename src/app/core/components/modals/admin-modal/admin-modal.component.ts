@@ -33,6 +33,7 @@ export class AdminModalComponent implements OnInit {
     if(mode === 'edit'){
       const editModal = this.modalService.open(EditScheduleModalComponent, this.modalOptions);
       editModal.componentInstance.discipline = discipline;
+      editModal.componentInstance.role = 'admin';
     }
     
   }

@@ -7,8 +7,16 @@
 <div class="modal-body">
    <form [formGroup]="reservationForm">
       <div class="form-group">
-         <label for="scheduleId">Discipline</label>
-         <input type="text" formControlName="scheduleId" class="form-control" id="scheduleId" placeholder="{{discipline.disciplineName}}" readonly>
+         <label>Discipline</label>
+         <input type="text" class="form-control" placeholder="{{discipline.disciplineName}}" readonly>
+      </div>
+      <div class="form-group">
+         <label>Teacher</label>
+         <input type="text" class="form-control" placeholder="{{discipline.teacherFirstName}} {{discipline.teacherLastName}}" readonly>
+      </div>
+      <div class="form-group">
+         <label>Start time</label>
+         <input type="text" class="form-control" placeholder="{{discipline.startTime | date: 'EEEE'}}, {{discipline.startTime | date: 'HH:mm'}}" readonly>
       </div>
       <div class="form-group">
          <label for="studentId">Student</label>
@@ -19,6 +27,6 @@
    </form>
 </div>
 <div class="modal-footer justify-content-between">
-    <button type="button" class="btn btn-secondary ml-auto" (click)="modal.dismiss()">Cancel</button>
-    <button type="button" class="btn btn-danger mr-auto" (click)="onAddReservation(reservationForm)">Reserve</button>
+    <button type="button" class="btn btn-outline-danger ml-auto" [disabled]="reservationForm.invalid || discipline.enrolledStudentsNumber == 0" (click)="onCancelReservation(reservationForm)">Cancel reservation</button>
+    <button type="button" class="btn btn-outline-success mr-auto" [disabled]="reservationForm.invalid || discipline.capacity == discipline.enrolledStudentsNumber" (click)="onReserve(reservationForm)">Add reservation</button>
 </div>
