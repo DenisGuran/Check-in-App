@@ -20,4 +20,8 @@ export class UserService {
   public getStudents(): Observable<User[]>{
     return this.http.get<User[]>(`${this.apiServerUrl}/role/student`);
   }
+
+  public getTeachers(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.apiServerUrl}/role/teacher`);
+  }
 }

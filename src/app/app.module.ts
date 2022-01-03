@@ -18,6 +18,8 @@ import { ReserveModalComponent } from './core/components/modals/reserve-modal/re
 import { AddScheduleModalComponent } from './core/components/modals/add-schedule-modal/add-schedule-modal.component';
 import { EditScheduleModalComponent } from './core/components/modals/edit-schedule-modal/edit-schedule-modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddDisciplineModalComponent } from './core/components/modals/add-discipline-modal/add-discipline-modal.component';
+import { AddClassroomModalComponent } from './core/components/modals/add-classroom-modal/add-classroom-modal.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DeleteScheduleModalComponent,
     ReserveModalComponent,
     AddScheduleModalComponent,
-    EditScheduleModalComponent
+    EditScheduleModalComponent,
+    AddDisciplineModalComponent,
+    AddClassroomModalComponent
   ],
   imports: [
     BrowserModule,

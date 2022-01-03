@@ -15,6 +15,7 @@ export class TimetableItemComponent implements OnInit {
   @Input() discipline!: Disciplinedto;
   @Input() role!: string;
   modalOptions: NgbModalOptions;
+  currentHour: number = new Date().getHours();
 
   constructor(private modalService: NgbModal) {
     this.modalOptions = {
@@ -25,6 +26,7 @@ export class TimetableItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.currentHour)
   }
 
   onOpenModal(discipline: Disciplinedto, role: string) {

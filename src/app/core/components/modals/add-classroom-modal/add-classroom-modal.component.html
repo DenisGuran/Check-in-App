@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="addModelLabel">Add Classroom</h5>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+ </div>
+ <div class="modal-body">
+    <form [formGroup]="addForm">
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="number" formControlName="location" class="form-control" id="location" required>
+        </div>
+        <div class="form-group">
+            <label for="capacity">Capacity</label>
+            <input type="number" formControlName="capacity" class="form-control" id="capacity" required>
+        </div>
+    </form>
+ </div>
+  <div class="modal-footer justify-content-between">
+    <button type="button" class="btn btn-outline-secondary ml-auto" (click)="modal.dismiss()">Close</button>
+    <button type="submit" class="btn btn-outline-primary mr-auto" [disabled]="addForm.invalid" (click)="onAddClassroom(addForm)">Add</button>
+ </div>
